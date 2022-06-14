@@ -21,6 +21,7 @@ public class JenkinsSupport : MonoBehaviour
         if (isDev)  buildPlayerOptions.options |= BuildOptions.Development;
         BuildReport report = BuildPipeline.BuildPlayer(buildPlayerOptions);
         BuildSummary summary = report.summary;
+        Debug.Log("this is a branch test build");
         if (summary.result == BuildResult.Succeeded)
         {
             Debug.Log("Build succeeded: " + summary.totalSize + " bytes");
