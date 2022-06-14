@@ -1,0 +1,9 @@
+/.vs
+/Logs
+/obj
+/Packages
+/Temp
+/.vsconfig
+/Assembly-CSharp-Editor.csproj
+/TestUnity.sln
+/Library
