@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UI;
+using UnityEngine.Playables;
 public enum IngredientUnit { Spoon, Cup, Bowl, Piece }
 [Serializable]
 public class Ingredient
@@ -45,9 +46,21 @@ public class Test : MonoBehaviour
         update_catelog.onClick.AddListener(() => { UpdateCatalog(); });
         downAsset.onClick.AddListener(() => { DownLoad(); });
     }
-
+    private void OnGUI()
+    {
+        if(GUI.Button(new Rect(0, 0, 100, 100), "TimeLine"))
+        {
+            PlayTimeLine();
+        }
+    }
+    void PlayTimeLine()
+    {
+        var timeLine = GetComponent<PlayableDirector>();
+        timeLine.Play();
+    }
     void LoadRes(string address,Transform parent)
     {
+        Addressables.LoadAssetAsync<GameObject>(address);
         var handle = Addressables.InstantiateAsync(address,parent);
         handle.Completed += (arg) =>
         {
