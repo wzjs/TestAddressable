@@ -10,6 +10,7 @@ public class JenkinsSupport : MonoBehaviour
     [MenuItem("Build/Build")]
     public static void BuildPlayer()
     {
+        Debug.Log("Branch Change");
         Debug.Log("start build player");
         var arg = System.Environment.GetCommandLineArgs();
         bool isDev = bool.Parse(arg[arg.Length - 1]);
